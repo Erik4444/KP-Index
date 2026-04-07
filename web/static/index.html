@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KP-Index Monitor — Aurora Watch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-left">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L13.09 8.26L19 7L14.74 11.74L19 17L13.09 15.74L12 22L10.91 15.74L5 17L9.26 11.74L5 7L10.91 8.26L12 2Z" fill="currentColor"/>
+      </svg>
+      <div>
+        <h1>Aurora Watch</h1>
+        <span class="subtitle">KP-Index Monitor · Deutschland</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div id="current-kp-card" class="kp-card">
+        <span class="kp-card-label">Aktueller KP</span>
+        <span id="kp-value" class="kp-card-value">—</span>
+        <span id="kp-storm-badge" class="kp-storm-badge">Lädt...</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="status-section">
+      <div id="aurora-alert" class="aurora-alert">
+        <div class="aurora-alert-icon">☀</div>
+        <div class="aurora-alert-text">
+          <div id="aurora-visibility" class="aurora-visibility-main">Lade Daten...</div>
+          <div id="last-updated" class="aurora-visibility-sub"></div>
+        </div>
+      </div>
+      <div id="refresh-info" class="refresh-info">
+        <span id="refresh-countdown">Aktualisiert in —</span>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <div class="section-header">
+        <h2>KP-Verlauf</h2>
+        <div class="time-range-buttons" role="group" aria-label="Zeitraum">
+          <button class="range-btn active" data-days="1">24h</button>
+          <button class="range-btn" data-days="3">3 Tage</button>
+          <button class="range-btn" data-days="7">7 Tage</button>
+          <button class="range-btn" data-days="30">30 Tage</button>
+        </div>
+      </div>
+      <div class="chart-wrapper">
+        <canvas id="kp-chart" aria-label="KP-Index Verlauf"></canvas>
+      </div>
+    </section>
+
+    <section class="scale-section">
+      <h2>KP-Skala &amp; Sichtbarkeit</h2>
+      <div class="scale-grid" id="scale-grid"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Daten: <a href="https://kp.gfz.de" target="_blank" rel="noopener">GFZ Potsdam</a> (CC BY 4.0) + <a href="https://www.swpc.noaa.gov" target="_blank" rel="noopener">NOAA SWPC</a></span>
+    <span>KP-Index · Geomagnetischer Sturm-Index</span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ─── Custom Properties ───────────────────────────────────────────── */
+:root {
+  --bg-deep:      #070a12;
+  --bg-card:      #0d1525;
+  --bg-surface:   #121e33;
+  --bg-hover:     #172540;
+  --border:       #1c2d48;
+  --border-bright:#2a4060;
+
+  --text-primary:   #ddeeff;
+  --text-secondary: #6b90b8;
+  --text-dim:       #3d5a7a;
+
+  --accent:       #4a8fd4;
+
+  /* KP color palette */
+  --c-quiet:      #22c55e;
+  --c-unsettled:  #84cc16;
+  --c-active:     #eab308;
+  --c-minor:      #f97316;
+  --c-moderate:   #ef4444;
+  --c-strong:     #dc2626;
+  --c-severe:     #b91c1c;
+  --c-extreme:    #7c3aed;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+/* ─── Reset & Base ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  min-height: 100vh;
+  /* Aurora glow at the top */
+  background-image:
+    radial-gradient(ellipse 100% 45% at 50% -5%, rgba(74,143,212,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 30% at 20% 0%, rgba(34,197,94,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 30% at 80% 0%, rgba(124,58,237,0.05) 0%, transparent 50%);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Header ──────────────────────────────────────────────────────── */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(13, 21, 37, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(74,143,212,0.6));
+}
+
+.site-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: block;
+  line-height: 1;
+}
+
+/* ─── KP Card (header) ────────────────────────────────────────────── */
+.kp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.25rem;
+  min-width: 110px;
+  text-align: center;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.kp-card-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.kp-card-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  transition: color 0.4s ease;
+}
+
+.kp-storm-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.4s ease;
+}
+
+/* ─── Status Section ──────────────────────────────────────────────── */
+.status-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.aurora-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-left-color: var(--text-dim);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.25rem;
+  transition: border-left-color 0.4s ease;
+  flex: 1;
+  min-width: 280px;
+}
+
+.aurora-alert-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: all 0.4s ease;
+}
+
+.aurora-visibility-main {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.aurora-visibility-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.1rem;
+}
+
+.refresh-info {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* ─── Chart Section ───────────────────────────────────────────────── */
+.chart-section {
+  margin: 0 2rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.section-header h2,
+.scale-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.time-range-buttons {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.range-btn {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.range-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-bright);
+}
+
+.range-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 300px;
+}
+
+#kp-chart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ─── KP Scale Section ────────────────────────────────────────────── */
+.scale-section {
+  margin: 0 2rem 2rem;
+}
+
+.scale-section h2 {
+  margin-bottom: 1rem;
+}
+
+.scale-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.625rem;
+}
+
+.scale-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  transition: background 0.15s;
+}
+
+.scale-item:hover {
+  background: var(--bg-surface);
+}
+
+.scale-item-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.scale-item-note {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────── */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ─── KP Color Classes ────────────────────────────────────────────── */
+.kp-quiet     { color: var(--c-quiet);     border-left-color: var(--c-quiet) !important; }
+.kp-unsettled { color: var(--c-unsettled); border-left-color: var(--c-unsettled) !important; }
+.kp-active    { color: var(--c-active);    border-left-color: var(--c-active) !important; }
+.kp-minor     { color: var(--c-minor);     border-left-color: var(--c-minor) !important; }
+.kp-moderate  { color: var(--c-moderate);  border-left-color: var(--c-moderate) !important; }
+.kp-strong    { color: var(--c-strong);    border-left-color: var(--c-strong) !important; }
+.kp-severe    { color: var(--c-severe);    border-left-color: var(--c-severe) !important; }
+.kp-extreme   { color: var(--c-extreme);   border-left-color: var(--c-extreme) !important; }
+
+/* ─── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .site-header { padding: 0.875rem 1rem; }
+  .status-section { padding: 0.875rem 1rem; }
+  .chart-section { margin: 0 1rem 1.5rem; }
+  .scale-section { margin: 0 1rem 1.5rem; }
+  .site-footer  { padding: 0.875rem 1rem; }
+  .chart-wrapper { height: 220px; }
+  .scale-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 400px) {
+  .scale-grid { grid-template-columns: 1fr; }
+  .site-header h1 { font-size: 1.1rem; }
+}
