@@ -48,14 +48,12 @@ python tui.py
 | `1` / `3` / `7` | Zeitraum 24h / 3d / 7d |
 | `q` | Beenden |
 
-### Docker (für Coolify)
+### Docker
 
 ```bash
 docker build -t kp-monitor .
 docker run -p 8000:8000 kp-monitor
 ```
-
-**Coolify:** Repository verbinden, Build-Methode „Dockerfile", Port `8000` eintragen — fertig.
 
 ---
 
@@ -71,7 +69,7 @@ web/
   static/       Frontend (HTML, CSS, Chart.js)
 tui.py          Textual Terminal-UI
 web.py          Uvicorn-Launcher
-Dockerfile      Für Coolify / Docker-Deployment
+Dockerfile      Docker-Deployment
 ```
 
 ## Lizenz
