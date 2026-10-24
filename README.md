@@ -4,6 +4,8 @@ Echtzeit-Überwachung des geomagnetischen KP-Index für Deutschland. Zeigt an, o
 
 Daten: [GFZ Potsdam](https://kp.gfz.de) (historisch, CC BY 4.0) + [NOAA SWPC](https://www.swpc.noaa.gov) (Echtzeit). Kein API-Key erforderlich.
 
+> **English:** real-time geomagnetic Kp-index monitor for Germany that shows whether and where auroras may be visible. Python 3.12 with FastAPI and Chart.js for the web dashboard and Textual for the terminal UI; both share one data package that merges GFZ Potsdam history with NOAA SWPC real-time data behind a small TTL cache. No API key needed.
+
 ---
 
 ## KP-Skala (Deutschland)
